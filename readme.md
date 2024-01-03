@@ -24,52 +24,23 @@ console.log(calculateBonus(-570, -838));
 - В package.json файле в скрипте "test" указать - jest
 - Создать файл calcBonus.test.js для тестов
 - В файле calcBonus.js содать экспорт кода командой ```module.exports = calculeteBonus;```
-- В файле calcBonus.test.js командой ```const.calculeteBonus = require(`./calcBonus.js`)``` импортировать код и сделать его видимым для тестирования.
+- В файле calcBonus.test.js командой ```const.calculeteBonus = require(`./calcBonus.js`)``` импортировать код, сделать его видимым для тестирования и передать его относительный путь.
 - Написать тесты проверок следующих состояний:
     - сумма > 50
-    - сумма = 50
-    - сумма < 50
-    - сумма = 0
-    - сумма отрицательных чисел
-    - сумма больших значений
-    - null + null
-    - text + text
-Получился код
+    - сумма!> 50
+    
+    Получился код
 
 ```javascript
-test("test on sum > 50", () => {
+test("bonus should be equal 50", () => {
   expect(calculateBonus(38, 36)).toBe(50);
 });
 
-test("test on value = 0", () =>{
-  expect(calculateBonus(0, 0)).toBe(0);
- });
-
-test("test on sum < 50", () => {
-  expect(calculateBonus(8, 6)).toBe(14);
- });
-
-test("test on sum = 50", () => {
-  expect(calculateBonus(38, 12)).toBe(50);
- });
-
-test("test on value negative values", () => {
-  expect(calculateBonus(-10, -45)).toBe(-55);
+test("bonus should be equal sum", () => {
+  expect(calculateBonus(12, 13)).toBe(25);
 });
-
-test("test on big number", () => {
-  expect(calculateBonus(2438540000, 382340020)).toBe(50);
- });
-
-test("test on null", () => {
-   expect(calculateBonus(null, null)).toBe(NaN);
- });
-
-test("test on text", () => {
-  expect(calculateBonus("text", "text")).toBe("text is not a number");
- });
 
 ``` 
 ### Запуск тестов
-###### Запустить тестирование командой ```npx jest```
-###### Добиться, чтобы тесты работали и не падали
+###### Запустить тестирование командой ```npx jest``` или ```npm run test ```, убедиться, что все работает.
+######
